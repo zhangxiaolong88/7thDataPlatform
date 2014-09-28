@@ -1,0 +1,19 @@
+<h2 id="gridTitle">This is the template for active Data.</h2>
+
+<table id="worldMapGrid">
+	<thead>
+		<tr>
+			<th ng:repeat="(id, tableHead) in queueHead" scope="col">
+				<a ng:click="flipOrderBy( id )">{{tableHead}}</a>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng:repeat="item in queue | orderBy:orderByCol:orderByReversed" class="status-{{creation.status}}">
+			<td>{{item.id}}</td>
+			<td>{{item.active}}</td>
+			<td>{{item.name}}</td>
+			<td>{{item.status}}</td>
+		</tr>
+	</tbody>
+</table>

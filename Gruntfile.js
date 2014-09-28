@@ -1,4 +1,4 @@
-// Generated on 2014-08-19 using generator-angular 0.9.5
+﻿// Generated on 2014-08-19 using generator-angular 0.9.5
 'use strict';
 
 // # Globbing
@@ -416,16 +416,7 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           port: 9000,
-          bases: [path.resolve(appConfig.app)],
-          monitor: {},
-          debug: true,
-          server: path.resolve('server/main')
-        }
-      },
-      test: {
-        options: {
-          port: 9000,
-          bases: [path.resolve('.tmp'), path.resolve(appConfig.app)],
+          bases: ['path.resolve(appConfig.app)'],
           monitor: {},
           debug: true,
           server: path.resolve('server/main')
@@ -491,7 +482,6 @@ module.exports = function(grunt) {
     'wiredep',
     'concurrent:server',
     'autoprefixer',
-    //'configureProxies',
     'express:livereload',
     'watch'
   ]);

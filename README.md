@@ -1,7 +1,8 @@
-angular-require-grunt-express-seed
+数据分析平台demo
 ==================================
 
-能够自动化部署的种子项目（包括前后端）
+使用自动化部署的种子项目：<br />
+https://github.com/zhangxiaolong88/angular-require-grunt-express-seed.git
 
 ##依赖：
 ###1.nodejs

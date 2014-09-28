@@ -1,6 +1,6 @@
 {
-  "name": "7th-data-platform",
-  "version": "0.0.0",
+  "name": "7thdataplatform",
+  "version": "0.0.1",
   "dependencies": {
     "angular": "1.2.16",
     "json3": "~3.3.1",

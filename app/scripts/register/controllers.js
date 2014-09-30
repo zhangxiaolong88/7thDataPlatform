@@ -5,39 +5,49 @@ define([
 	'underscore',
 	'routers/routers',
 	'common/appControllers',
-	'worldMap/controllers'
-], function(_, routers, ac, wc) {
+	'system/controllers'
+], function(_, routers, ac, sc, bsc) {
 
 	var controllers = {};
-	controllers = _.extend(controllers, ac, wc);
+	controllers = _.extend(controllers, ac, sc, bsc);
 
 	var setUpRouters = function(angModule) {
 		angModule.config(function($stateProvider, $urlRouterProvider) {
+			
+			var bindState = function(v){
+				$stateProvider
+					.state(v.route, {
+	            		abstract: v.abstract || false,
+						url: v.url,
+						templateUrl: v.template,
+						controller: v.controller
+					});
+			}
+
 			_.each(routers, function(value, key) {
 				// 如果没有子级菜单
-				if (!!value.template && !!value.controller) {
-					$stateProvider
-						.state(value.title, {
-							url: value.route,
-							templateUrl: value.template,
-							controller: value.controller
-						});
-
-				} else {
+				if (value && value.route) {
+					bindState(value);
+				}
+				if (value && value.list) {
 					// 如果是父级菜单（大多数情况）
-					if (!!value.list && value.list.length != 0) {
-						_.each(value.list, function(v, k) {
-							$stateProvider
-								.state(v.title, {
-									url: v.route,
-									templateUrl: v.template,
-									controller: v.controller
-								});
-						});
-					}
+					_.each(value.list, function(v, k) {
+						if(v.route){
+							bindState(v);
+						}
+						if(v.list){
+							_.each(v.list,function(vv, kk){
+								if(vv.route){
+									bindState(vv);
+								}
+							});
+						}
+					});
 				}
 			});
-			$urlRouterProvider.otherwise(routers.home.route);
+
+			//默认路由
+			$urlRouterProvider.otherwise(routers.login.url);
 		});
 		angModule.run(function($rootScope) {
 			$rootScope.$on('$routeChangeSuccess', function(next, last) {

@@ -7,24 +7,19 @@ define([
   'register/filters',
   'register/controllers',
   'ngResource',
-  'uiRoute'
+  'uiRoute',
+  'uiBootstrapTpls',
+  'uiBootstrap',
+  'ngAnimate',
+  'ngCookies'
 ], function(angular, services, directives, filters, controllers) {
 
   var initialize = function() {
-    var app = angular.module('7thDataPlatformApp', ['ui.router', 'ngResource']);
-    // app.config(function($stateProvider, $urlRouterProvider) {
-    //   $urlRouterProvider.otherwise("/home");
-    //   $stateProvider
-    //     .state('home', {
-    //       url: "/home",
-    //       templateUrl: "views/main.html"
-    //     })
-    //     .state('about', {
-    //       url: "/about",
-    //       templateUrl: "views/about.html"
-    //     });
-    // });
+    var app = angular.module('7thDataPlatformApp', ['ui.router', 'ngResource','ui.bootstrap','ngAnimate','ngCookies']);
   
+    // 常量
+    app.constant('BASEPATH', 'http://localhost:9000');
+
     // 注册 （注意这里的顺序）
     services.initialize(app);
     directives.initialize(app);

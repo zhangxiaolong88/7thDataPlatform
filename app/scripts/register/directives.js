@@ -3,14 +3,11 @@
 /* Directives */
 define([
 	'underscore',
-	'common/directives',
-	'worldMap/directives'
+	'common/directives'
 ], function(_, cd, wd) {
-
-	var directives = {
-		commonDirective: cd,
-		worldMapDirective: wd
-	};
+	
+	var directives = {};
+	directives = _.extend(directives, cd, wd);
 
 	var initialize = function(angModule) {
 		_.each(directives, function(filter, name) {

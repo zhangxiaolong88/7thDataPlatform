@@ -12,8 +12,6 @@ require.config({
 		'uiRoute': '../components/angular-ui-router/release/angular-ui-router',
 		'uiBootstrap': '../components/angular-bootstrap/ui-bootstrap',
 		'uiBootstrapTpls': '../components/angular-bootstrap/ui-bootstrap-tpls',
-		'uiSelect': '../components/angular-ui-select2/src/select2',
-		'uiTree': '../components/angular-ui-tree/dist/angular-ui-tree',
 		'jquery': '../components/jquery/dist/jquery',
 		'd3': '../components/d3/d3',
 		'underscore': '../components/underscore/underscore'
@@ -43,16 +41,12 @@ require.config({
 			exports: 'uiRoute'
 		},
 		'uiBootstrap': {
+			deps: ['angular'],
 			exports: 'uiBootstrap'
 		},
 		'uiBootstrapTpls': {
+			deps: ['uiBootstrap'],
 			exports: 'uiBootstrapTpls'
-		},
-		'uiSelect': {
-			exports: 'uiSelect'
-		},
-		'uiTree': {
-			exports: 'uiTree'
 		},
 		'd3': {
 			exports: 'd3'

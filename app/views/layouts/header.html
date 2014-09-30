@@ -1,0 +1,57 @@
+<!--Navbar -->
+<div class="container-fluid">
+    <div class="navbar-header">
+        <div class="pull-left">
+            <a class="navbar-brand" href="#">
+                <img src="images/7road.png" alt="">
+            </a>
+        </div>
+        
+         <div class="pull-right" ng-if="!valueObj.isLogin && !valueObj.isMetro">
+            <button type="button" class="navbar-toggle" ng-click="valueObj.sidebarCollapsed=!valueObj.sidebarCollapsed">
+                <span class="sr-only">Toggle sidebar</span>
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+
+        <ul class="nav navbar-nav pull-right">
+            <li class="update" ng-if="!valueObj.isLogin">
+                <a href="javascript:void(0);">
+                    <i class="fa fa-rotate-right"></i>
+                    <span>更新</span>
+                    <strong class="label label-danger">15</strong>
+                </a>
+            </li>
+            <li class="language dropdown" ng-class="{open:!valueObj.LanguageCollapsed}">
+                <a class="dropdown-toggle" ng-click="valueObj.LanguageCollapsed = !valueObj.LanguageCollapsed">
+                    <i class="fa fa-language"></i>
+                    <span>语言</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu language" ng-init="valueObj.LanguageCollapsed=true;" collapse="valueObj.LanguageCollapsed" style="height: 0px;">
+                    <li><a href="#">中文</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </li>
+            <li class="user dropdown" ng-if="!valueObj.isLogin">
+                <a class="dropdown-toggle" ng-click="valueObj.infoCollapsed = !valueObj.infoCollapsed">
+                    <img src="images/users/person.jpg" alt="">
+                    <span>{{currentUser}}</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu" ng-init="valueObj.infoCollapsed=true;" collapse="valueObj.infoCollapsed" style="height: 0px;">
+                    <li><a href="#"><i class="fa fa-tasks"></i>任务信息</a></li>
+                    <li><a href="#"><i class="fa fa-comment"></i>消息中心</a></li>
+                    <li><a href="#"><i class="fa fa-key"></i>修改密码</a></li>
+                    <li><a href ui-sref="system.login"><i class="fa fa-mail-forward"></i> 安全退出</a></li>
+                </ul>
+            </li>
+            <li ng-if="!valueObj.isLogin && !valueObj.isMetro">
+                <a class="nav-icon sidebar-toggle" ng-click="valueObj.showSidebar=!valueObj.showSidebar">
+                <i class="fa fa-bars"></i>
+                </a>
+            </li>
+        </ul>
+    </div> 
+</div>
+<!-- /navbar -->

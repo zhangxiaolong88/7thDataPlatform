@@ -3,14 +3,11 @@
 /* Filters */
 define([
 	'underscore',
-	'common/filters',
-	'worldMap/filters'
+	'common/filters'
 ], function(_, cf, wf) {
-
-	var filters = {
-		commonFilter: cf,
-		worldMapFilter: wf
-	};
+	
+	var filters = {};
+	filters = _.extend(filters, cf, wf);
 
 	var initialize = function(angModule) {
 		_.each(filters, function(filter, name) {

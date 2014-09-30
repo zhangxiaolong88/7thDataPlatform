@@ -1,0 +1,39 @@
+<!-- navbar-->
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-include="'views/layouts/header.html'"></div>
+<!-- /navbar-->
+
+<!-- Page container -->
+<div class="page-container container-fluid" ng-class="{'hidden-sidebar':valueObj.showSidebar}">
+
+	<div class="sidebar" ng-class="{collapse:!valueObj.sidebarCollapsed}" ng-include="'views/layouts/menu.html'"></div>
+
+	<!-- todo:菜单的显示隐藏bug	-->
+    <!-- Page content -->
+    <div class="page-content">
+    	<!-- search-->
+		<div role="search" ng-include="'views/layouts/search.html'"></div>
+		<!-- /search-->
+
+        <!--面包屑-->
+		<div class="page-title breadcrumb">
+
+		    <ol class="breadcrumb">
+			  <li>
+			  	<a href="#">
+			  		<i class="fa fa-home"></i>
+			  		<span class="home-text">当前位置：</span>
+			  	</a>
+			  </li>
+			  <li><a href="javascript:void(0);">{{valueObj.currentMenu.systemTitle}}</a></li>
+			  <li><a href="javascript:void(0);">{{valueObj.currentMenu.oneTitle}}</a></li>
+			  <li class="active">{{valueObj.currentMenu.twoTitle}}</li>
+			</ol>
+		</div>
+		<!-- /面包屑 -->
+		
+    	<div  class="page-content-main" ui-view>
+    	</div>
+    </div>
+    <!-- /page content -->
+</div>
+<!-- page container

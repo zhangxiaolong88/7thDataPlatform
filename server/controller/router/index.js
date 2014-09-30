@@ -10,6 +10,6 @@ module.exports = function(app){
 	});
 
 	// 所有路由
-	require('./worldMap')(app);
+	require('./system')(app);
 
 };

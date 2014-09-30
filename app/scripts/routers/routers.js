@@ -5,14 +5,14 @@ define([], function() {
 		loginLayout: {
 			abstract: true,
 			title: '布局',
-			route: 'loginLayout',
+			route: 'login',
 			url: '',
 			template: 'views/layouts/loginLayout.html',
 			controller: 'appController',
 		},
 		login: {
 			title: '登录',
-			route: 'loginLayout.login',
+			route: 'login.main',
 			url: '/login',
 			template: 'views/layouts/login.html',
 			controller: 'LoginController'
@@ -21,6 +21,7 @@ define([], function() {
 			abstract: true,
 			title: '系统',
 			route: 'system',
+			defaultRoute:"system.fiveForce",
 			url: '/system',
 			template: 'views/layouts/mainLayout.html',
 			controller: 'appController',

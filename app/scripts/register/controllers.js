@@ -5,7 +5,8 @@ define([
 	'underscore',
 	'routers/routers',
 	'common/appControllers',
-	'system/controllers'
+	'system/controllers',
+	'businessSystem/controllers'
 ], function(_, routers, ac, sc, bsc) {
 
 	var controllers = {};

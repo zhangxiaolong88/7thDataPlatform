@@ -2,86 +2,75 @@
 
 define([], function() {
 	return {
-		loginLayout: {
+		main: {
 			abstract: true,
 			title: '布局',
-			route: 'login',
+			route: 'main',
 			url: '',
-			template: 'views/layouts/loginLayout.html',
+			template: 'views/layouts/mainLayout.html',
 			controller: 'appController',
 		},
 		login: {
 			title: '登录',
-			route: 'login.main',
+			route: 'main.login',
 			url: '/login',
 			template: 'views/layouts/login.html',
 			controller: 'LoginController'
 		},
-		system: {
-			abstract: true,
-			title: '系统',
-			route: 'system',
-			defaultRoute:"system.fiveForce",
-			url: '/system',
-			template: 'views/layouts/mainLayout.html',
-			controller: 'appController',
-			isSys: true,
-			sysIco: "fa-windows",
-			size: 21,
-			key: 1,
+		menu: {
+			title: '菜单',
 			list: {
 				index: {
-					title: '指标分析',
-					key: 12,
+					title: '基本配置',
 					list: {
-						fiveForce: {
-							title: '五力模型',
-							route: 'system.fiveForce',
-							url: '/fiveForce',
-							template: 'views/businessSystem/fiveForce.html',
-							controller: 'tablesController',
-							key: 121,
+						game: {
+							title: '游戏管理',
+							route: 'main.game',
+							url: '/game',
+							template: 'views/game.html',
+							controller: 'gameController'
 						},
-						trend: {
-							title: '指标趋势看盘',
-							route: 'system.trend',
-							url: '/trend',
-							template: 'views/businessSystem/demo.html',
-							controller: 'demoController',
-							key: 122,
+						agent: {
+							title: '代理商管理',
+							route: 'main.agent',
+							url: '/agent',
+							template: 'views/agent.html',
+							controller: 'agentController'
 						},
-						plate: {
-							title: '板块看盘',
-							route: 'system.plate',
-							url: '/plate',
-							template: 'views/businessSystem/demo.html',
-							controller: 'demoController',
-							key: 123,
+						area: {
+							title: '地区管理',
+							router: 'main.area',
+							url: '/area',
+							template: 'views/area.html',
+							controller: 'areaController'
 						},
-						retention: {
-							title: '新用户留存率',
-							route: 'system.retention',
-							url: '/retention',
-							template: 'views/businessSystem/tables.html',
-							controller: 'tablesController',
-							key: 124,
-						},
-						funnel: {
-							title: '新用户漏斗模型',
-							route: 'system.funnel',
-							url: '/funnel',
-							template: 'views/businessSystem/demo.html',
-							controller: 'demoController',
-							key: 125,
-						},
-						activeLogin: {
-							title: '活跃登录在线',
-							route: 'system.activeLogin',
-							url: '/activeLogin',
-							template: 'views/businessSystem/demo.html',
-							controller: 'demoController',
-							key: 126
+						func: {
+							title: '模块管理',
+							router: 'main.module',
+							url: '/module',
+							template: 'views/module.html',
+							controller: 'moduleController'
 						}
+					}
+				},
+				users: {
+					title: '用户管理',
+					list: {
+						account: {
+							title: '帐号管理',
+							route: 'main.account ',
+							url: '/account',
+							template: 'views/account.html',
+							controller: 'accountController'
+						},
+						authority: {
+							title: '权限管理',
+							route: 'main.authority',
+							url: '/authority',
+							template: 'views/authority.html',
+							controller: 'authorityController'
+						},
+						
 					}
 				}
 			}

@@ -5,8 +5,7 @@ define([
 	'underscore',
 	'routers/routers',
 	'common/appControllers',
-	'system/controllers',
-	'businessSystem/controllers'
+	'system/controllers'
 ], function(_, routers, ac, sc, bsc) {
 
 	var controllers = {};
@@ -14,40 +13,33 @@ define([
 
 	var setUpRouters = function(angModule) {
 		angModule.config(function($stateProvider, $urlRouterProvider) {
-			
-			var bindState = function(v){
+
+			// 定义：单个路由绑定函数
+			var singleBind = function(v) {
 				$stateProvider
 					.state(v.route, {
-	            		abstract: v.abstract || false,
+						abstract: v.abstract || false,
 						url: v.url,
 						templateUrl: v.template,
 						controller: v.controller
 					});
-			}
+			};
 
-			_.each(routers, function(value, key) {
-				// 如果没有子级菜单
-				if (value && value.route) {
-					bindState(value);
-				}
-				if (value && value.list) {
-					// 如果是父级菜单（大多数情况）
-					_.each(value.list, function(v, k) {
-						if(v.route){
-							bindState(v);
-						}
-						if(v.list){
-							_.each(v.list,function(vv, kk){
-								if(vv.route){
-									bindState(vv);
-								}
-							});
-						}
-					});
-				}
-			});
+			// 定义：列表路由递归循环绑定函数
+			var listBind = function(list) {
+				_each(list, function(v, k) {
+					if (v.route) {
+						singleBind(v);
+					} else if (v.list) {
+						routersBind(v.list);
+					}
+				});
+			};
 
-			//默认路由
+			// 绑定路由
+			listBind(routers);
+
+			// 设置默认路由
 			$urlRouterProvider.otherwise(routers.login.url);
 		});
 		angModule.run(function($rootScope) {
@@ -58,6 +50,7 @@ define([
 		});
 	};
 
+	// 初始化控制器和路由器
 	var initialize = function(angModule) {
 		_.each(controllers, function(controller, name) {
 			angModule.controller(name, controller);

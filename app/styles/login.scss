@@ -1,0 +1,18 @@
+//登录界面
+.loginWrapper{
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -160px 0 0 -200px;
+  .panel-title{
+    padding: 18px 14px 18px 14px;
+    float: none;
+  }
+  .panel-body{
+    padding: 30px 60px;
+    .checkbox label{
+      padding-left: 0;
+    }
+  }
+}

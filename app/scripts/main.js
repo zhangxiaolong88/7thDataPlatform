@@ -5,10 +5,10 @@ require.config({
 	baseUrl: 'scripts',
 	paths: {
 		'angular': '../components/angular/angular',
+		'ngRoute': '../components/angular-route/angular-route',
 		'ngAnimate': '../components/angular-animate/angular-animate',
 		'ngResource': '../components/angular-resource/angular-resource',
 		'ngCookies': '../components/angular-cookies/angular-cookies',
-		'ngSanitize': '../components/angular-sanitize/angular-sanitize',
 		'uiRoute': '../components/angular-ui-router/release/angular-ui-router',
 		'uiBootstrap': '../components/angular-bootstrap/ui-bootstrap',
 		'uiBootstrapTpls': '../components/angular-bootstrap/ui-bootstrap-tpls',
@@ -19,6 +19,10 @@ require.config({
 	shim: {
 		'angular': {
 			exports: 'angular'
+		},
+		'ngRoute': {
+			deps: ['angular'],
+			exports: 'ngRoute'
 		},
 		'ngAnimate': {
 			deps: ['angular'],
@@ -31,10 +35,6 @@ require.config({
 		'ngCookies': {
 			deps: ['angular'],
 			exports: 'ngCookies'
-		},
-		'ngSanitize': {
-			deps: ['angular'],
-			exports: 'ngSanitize'
 		},
 		'uiRoute': {
 			deps: ['angular'],

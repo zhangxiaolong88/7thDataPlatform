@@ -4,6 +4,12 @@
 // endbower
 
 //加载默认主题样式
-@import "./theme/brain-theme.scss";
+@import "./theme/londinium-theme.scss";
 @import "./theme/styles.scss";
-@import "./theme/font_cuprum.scss";
+@import "./theme/icons.scss";
+
+//重写
+@import "./reset.scss";
+
+//登录样式
+@import "./login.scss";

@@ -1,22 +1,25 @@
 'use strict';
 
 /* Controllers */
-define([
-	'routers/routers'
-], function(routers) {
+define([], function() {
 	var controllersObj = {};
-	controllersObj.appController = ['$scope', '$state', '$cookieStore',
-		function($scope, $state, $cookieStore) {
-			$scope.currentUser = $cookieStore.get('user');
+
+	controllersObj.appController = ['$scope',
+		function($scope) {
 
 			// 判断登录
-			if (!$scope.currentUser) {
-				$state.go("system.login");
-			}
+			// if (!$scope.currentUser) {
+			// 	$state.go("login");
+			// }
 
-			//页面model对象
-			$scope.valueObj = {
-
+			// 系统当前的功能模块对象
+			$scope.currentNav = {
+				name: '',
+				desc: '',
+				currentSubNav: {
+					name: '',
+					desc: ''
+				}
 			};
 
 

@@ -1,4 +1,5 @@
 ﻿'use strict';
+
 /* Services */
 define([], function() {
 	var services= {};

@@ -1,51 +1,36 @@
-<div ng-controller="MenuController">
-    <div class="systemWrap" ng-class="{open:changeSystem}" >
-        <a href="javascript:;" class="tilte" ng-click="changeSystem=!changeSystem">
-            <h3>
-                <i class="fa {{navigation.sysIco}}"></i>
-                {{navigation.title}}
-                <small>监控、分析全面到位</small>
-                <i ng-class="{'fa-chevron-right':!changeSystem,'fa-chevron-left':changeSystem}" class="openIco fa"></i>
-            </h3>
-        </a>
-        <i class="bgMask"></i>
-        <div class="systemList panel panel-default" ng-init="changeSystem=false;" ng-class="{open:changeSystem}" ng-style="sysMenuHeight">
-            <div class="panel-body">
-                <ul>
-                    <li ng-repeat="sys in sysList" ng-if="sys.isSys && sys.key != navigation.key">
-                        <a href ng-click="gotoSys(sys.route,sys.defaultRoute)" ng-disabled="!sys.defaultRoute">
-                            <i class="fa {{sys.sysIco}}"></i>
-                            {{sys.title}}
-                            <i title="无权限" ng-if="ownSysIdArr.indexOf(sys.key) == -1" class="fa fa-lock"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+<div class="sidebar-content animated fadeIn" ng-controller="menuController">
 
-    <!-- Sidebar -->
+    <!-- User dropdown -->
+    <div class="user-menu">
+        <a data-toggle="dropdown" class="dropdown-toggle">
+            <div class="user-info">
+                后台管理系统 <span>数据分析平台</span>
+            </div>
+        </a>
+    </div>
+    <!-- /user dropdown -->
+
+    <!-- Main navigation -->
     <ul class="navigation">
-        <li ng-repeat="nav in navigation.list" ng-if="nav" ng-class="{'active':nav.active}">
+        <li class="has-ul" ng-repeat="nav in menu" ng-class="{'active':nav.active}">
             <a ng-if="!nav.list" href ui-sref="{{nav.route}}">
-                <i class="fa fa-laptop"></i>
-                {{nav.title}}
+                <span>{{nav.title}}</span>
+                <i class="{{nav.icon}}"></i>
             </a>
             <a ng-if="nav.list" href ng-click="nav.show = !nav.show" class="expand level-closed">
-                <i class="fa fa-align-justify"></i>
-                {{nav.title}}
+                <span>{{nav.title}}</span>
+                <i class="{{nav.icon}}"></i>
             </a>
             <ul ng-if="nav.list" collapse="!nav.show">
                 <li ng-repeat="subNav in nav.list" ng-class="{'active':subNav.active}">
-                    <a href ui-sref="{{subNav.route}}">
-                        {{subNav.title}}
-                    </a>
+                    <a href ui-sref="{{subNav.route}}">{{subNav.title}}</a>
                 </li>
             </ul>
-            <!--累赘标签-->
-            <i ng-show="false" ng-if="($index==0)" ng-init="nav.show=true"></i>
-            <!--/累赘标签-->
         </li>
+        
     </ul>
-    <!-- /sidebar -->
+    <!-- /main navigation -->
+    
 </div>
+     
+<!-- /sidebar -->

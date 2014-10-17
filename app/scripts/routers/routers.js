@@ -2,6 +2,13 @@
 
 define([], function() {
 	return {
+		login: {
+			title: '登录',
+			route: 'login',
+			url: '/login',
+			template: 'views/layouts/login.html',
+			controller: 'loginController'
+		},
 		main: {
 			abstract: true,
 			title: '布局',
@@ -10,67 +17,68 @@ define([], function() {
 			template: 'views/layouts/mainLayout.html',
 			controller: 'appController',
 		},
-		login: {
-			title: '登录',
-			route: 'main.login',
-			url: '/login',
-			template: 'views/layouts/login.html',
-			controller: 'LoginController'
-		},
 		menu: {
 			title: '菜单',
 			list: {
-				index: {
+				items: {
 					title: '基本配置',
+					icon: 'icon-grid',
 					list: {
 						game: {
 							title: '游戏管理',
 							route: 'main.game',
 							url: '/game',
-							template: 'views/game.html',
-							controller: 'gameController'
+							template: 'views/items/game.html',
+							controller: 'loginController',
+							desc: '增加一个新的游戏模块或者删除一个旧的'
 						},
 						agent: {
 							title: '代理商管理',
 							route: 'main.agent',
 							url: '/agent',
-							template: 'views/agent.html',
-							controller: 'agentController'
+							template: 'views/items/agent.html',
+							controller: 'agentController',
+							desc: '仅用于大数据系统，将现有的各游戏中相同的代理商合并'
 						},
 						area: {
 							title: '地区管理',
-							router: 'main.area',
+							route: 'main.area',
 							url: '/area',
-							template: 'views/area.html',
-							controller: 'areaController'
+							template: 'views/items/area.html',
+							controller: 'areaController',
+							desc: '仅用于大数据系统，将世界地图对地区进行了划分'
 						},
 						func: {
 							title: '模块管理',
-							router: 'main.module',
+							route: 'main.module',
 							url: '/module',
-							template: 'views/module.html',
-							controller: 'moduleController'
+							template: 'views/items/module.html',
+							controller: 'moduleController',
+							desc: '增加一个新的功能模块或者删除一个旧的'
 						}
 					}
 				},
 				users: {
 					title: '用户管理',
+					icon: 'icon-user',
 					list: {
 						account: {
 							title: '帐号管理',
-							route: 'main.account ',
+							route: 'main.account',
 							url: '/account',
-							template: 'views/account.html',
-							controller: 'accountController'
+							template: 'views/user/account.html',
+							controller: 'accountController',
+							desc: '注册或删除用户的帐号'
 						},
 						authority: {
 							title: '权限管理',
 							route: 'main.authority',
 							url: '/authority',
-							template: 'views/authority.html',
-							controller: 'authorityController'
+							template: 'views/user/authority.html',
+							controller: 'authorityController',
+							desc: '在这里管理每个用户的系统、游戏、菜单、功能按钮等权限'
 						},
-						
+
 					}
 				}
 			}

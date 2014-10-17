@@ -4,10 +4,10 @@
 define([
 	'underscore',
 	'common/directives'
-], function(_, cd, wd) {
+], function(_, cd) {
 	
 	var directives = {};
-	directives = _.extend(directives, cd, wd);
+	directives = _.extend(directives, cd);
 
 	var initialize = function(angModule) {
 		_.each(directives, function(filter, name) {

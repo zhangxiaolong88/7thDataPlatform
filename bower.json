@@ -2,7 +2,7 @@
   "name": "7thdataplatform",
   "version": "0.0.1",
   "dependencies": {
-    "angular": "1.2.16",
+    "angular": "1.2.25",
     "json3": "~3.3.1",
     "es5-shim": "~3.1.0",
     "jquery": "~1.11.0",
@@ -16,7 +16,7 @@
     "bootstrap-sass-official": "~3.2.0",
     "d3": "~3.4.11",
     "underscore": "~1.6.0",
-    "font-awesome": "~4.2.0"
+    "angular-route": "~1.2.25"
   },
   "devDependencies": {
     "angular-mocks": "1.2.16",

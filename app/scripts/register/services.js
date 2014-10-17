@@ -4,11 +4,11 @@
 define([
 	'underscore',
 	'common/services',
-	'worldMap/services'
-], function(_, cs, ws) {
+	'system/services'
+], function(_, cs, ss) {
 
 	var services = {};
-	services = _.extend(services, cs, ws)
+	services = _.extend(services, cs, ss);
 	
 	var initialize = function(angModule) {
 		_.each(services, function(service, name) {

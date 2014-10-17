@@ -4,10 +4,10 @@
 define([
 	'underscore',
 	'common/filters'
-], function(_, cf, wf) {
+], function(_, cf) {
 	
 	var filters = {};
-	filters = _.extend(filters, cf, wf);
+	filters = _.extend(filters, cf);
 
 	var initialize = function(angModule) {
 		_.each(filters, function(filter, name) {

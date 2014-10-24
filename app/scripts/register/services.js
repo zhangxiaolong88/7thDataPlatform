@@ -4,11 +4,12 @@
 define([
 	'underscore',
 	'common/services',
-	'system/services'
-], function(_, cs, ss) {
+	'system/services',
+	'items/services'
+], function(_, cs, ss, is) {
 
 	var services = {};
-	services = _.extend(services, cs, ss);
+	services = _.extend(services, cs, ss, is);
 	
 	var initialize = function(angModule) {
 		_.each(services, function(service, name) {

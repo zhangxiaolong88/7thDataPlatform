@@ -3,13 +3,16 @@
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
-//加载默认主题样式
+// 加载默认主题样式
 @import "./theme/londinium-theme.scss";
 @import "./theme/styles.scss";
 @import "./theme/icons.scss";
 
-//重写
+// 重写
 @import "./reset.scss";
 
-//登录样式
+// 登录样式
 @import "./login.scss";
+
+// 日期选择控件
+@import "../components/pickDataRange/pickDataRange.scss";

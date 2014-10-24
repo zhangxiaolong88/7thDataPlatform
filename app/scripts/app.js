@@ -17,18 +17,18 @@ define([
 
   var initialize = function() {
     var app = angular.module('7thDataPlatformApp', ['ngResource', 'ui.router', 'ui.bootstrap', 'ngAnimate', 'ngCookies', 'ngRoute'])
-      .run(['$rootScope', '$location',
-        function($rootScope, $location) {
-          $rootScope.$on("$routeChangeStart", function(event, next, current) {
-            console.log(11);
-            // if (!Auth.authorize(next.access)) {
-            //   if (Auth.isLoggedIn()) $location.path('/');
-            //   else $location.path('/login');
-            // }
-          });
-          $rootScope.$on('$routeChangeSuccess', function(next, last) {
-            console.log("Navigating from ", last);
-            console.log("Navigating to ", next);
+      .run(['$rootScope', '$location', '$state', 'loginService',
+        function($rootScope, $location, $state, loginService) {
+          $rootScope.$on("$locationChangeStart", function(event, next, current) {
+            // 如果直接访问登录页面，则不验证登录。否则每次变更路由都要验证登录
+            if (next.split("#")[1] !== "/login") {
+              loginService.checkLogin().success(function(result) {
+                if (result.status === 0) {
+                  $state.go("login");
+                }
+              });
+            }
+
           });
         }
       ]);

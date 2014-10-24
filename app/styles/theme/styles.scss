@@ -3656,7 +3656,7 @@ body > .jGrowl {
   display: block;
   width: 11px;
   height: 6px;
-  background: url(../images/interface/vertical_arrows.png) no-repeat 0 0;
+  background: url(../images/tables/vertical_arrows.png) no-repeat 0 0;
 }
 
 .select2-search {
@@ -3678,7 +3678,7 @@ body > .jGrowl {
   margin: 0;
   outline: 0;
   border: 1px solid #DDD;
-  background: #FFF url(../images/interface/filter.png) no-repeat 10px;
+  background: #FFF url(../images/tables/filter.png) no-repeat 10px;
 }
 
 .select2-container-active .select2-choice, 
@@ -4494,30 +4494,30 @@ body > .jGrowl {
   outline: none;
 }
 .dataTable tfoot th input[type=text] {
-  background: url(../images/interface/filter.png) no-repeat 12px;
+  background: url(../images/tables/filter.png) no-repeat 12px;
   padding-left: 32px;
   font-weight: 400;
 }
 
 
 .sorting {
-  background: url('../images/interface/tables/sort_both.png') no-repeat 100%;
+  background: url('../images/tables/sort_both.png') no-repeat 100%;
   padding-right: 24px!important;
 }
 .sorting_asc {
-  background: url('../images/interface/tables/sort_asc.png') no-repeat 100%;
+  background: url('../images/tables/sort_asc.png') no-repeat 100%;
   padding-right: 24px!important;
 }
 .sorting_desc {
-  background: url('../images/interface/tables/sort_desc.png') no-repeat 100%;
+  background: url('../images/tables/sort_desc.png') no-repeat 100%;
   padding-right: 24px!important;
 }
 .sorting_asc_disabled {
-  background: url('../images/interface/tables/sort_asc_disabled.png') no-repeat 100%;
+  background: url('../images/tables/sort_asc_disabled.png') no-repeat 100%;
   padding-right: 24px!important;
 }
 .sorting_desc_disabled {
-  background: url('../images/interface/tables/sort_desc_disabled.png') no-repeat 100%;
+  background: url('../images/tables/sort_desc_disabled.png') no-repeat 100%;
   padding-right: 24px!important;
 }
 .table-condensed .sorting, 
@@ -4637,7 +4637,7 @@ tr.shown td.details-control {
   font-size: 12px;
 }
 .dataTables_filter label > input[type=search] {
-  background: url(../images/interface/filter.png) no-repeat 95%;
+  background: url(../images/tables/filter.png) no-repeat 95%;
   line-height: 1.42857143;
   height: 34px;
   padding: 7px 30px 8px 9px;

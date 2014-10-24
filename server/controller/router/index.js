@@ -11,4 +11,5 @@ module.exports = function(app) {
 	// 所有路由
 	require('./system/user')(app);
 
+	require('./items/game')(app);
 };

@@ -28,9 +28,9 @@ define([], function() {
 							title: '游戏管理',
 							route: 'main.game',
 							url: '/game',
-							template: 'views/items/game.html',
-							controller: 'loginController',
-							desc: '增加一个新的游戏模块或者删除一个旧的'
+							template: 'views/items/game/game.html',
+							controller: 'gameController',
+							desc: '增加一个新的游戏或者删除一个旧的'
 						},
 						agent: {
 							title: '代理商管理',

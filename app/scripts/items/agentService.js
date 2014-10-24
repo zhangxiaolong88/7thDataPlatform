@@ -19,6 +19,5 @@ define([], function() {
 		}
 	];
 
-
 	return services;
 });

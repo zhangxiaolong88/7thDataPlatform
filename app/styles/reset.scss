@@ -1,8 +1,42 @@
+// bootstrap
+.table-bordered > thead > tr > th, .table-bordered > thead > tr > td {
+	border-bottom-width: 1px;
+}
+
 .fa {
   font-size: 14px;
 }
 
-//header.html
+// header.html
 .navbar-brand{
   padding: 5px 0px;
+}
+
+// content
+.operations {
+	border: 0px;
+	padding-top: 0px;
+	padding-left: 0px;
+}
+
+// tables
+#pageCount {
+	padding: 0px;
+}
+
+#gamesFilter {
+	float: right;
+	padding-right: 20px;
+}
+
+#gameList, #gameList th, #gameList td {
+	box-sizing: border-box;
+}
+
+// dataRange 
+.dataRange {
+	display: inline-block;
+	float:left;
+	width: 100%;
+	margin: 10px 0px;
 }

@@ -1,0 +1,105 @@
+﻿<div class="dataRange" pick-data-range></div>
+sp-start: {{dataRang.sp_startTime}} 
+sp-end: {{dataRang.sp_endTime}} </br>
+到 <br>
+ep-start: {{dataRang.ep_startTime}} 
+ep-end: {{dataRang.ep_endTime}} </br>
+
+
+<div class="block">
+	<h6 class="heading-hr"><i class="icon-file"></i> 游戏列表</h6>
+    <div class="datatable">
+        <div id="DataTables_Table_8_wrapper" class="dataTables_wrapper no-footer">
+        	<div class="datatable-header">  
+        		<button type="button" class="btn btn-info">
+			    	<i class="icon-plus"> </i>
+			    	增加
+			    </button>
+			    <button type="button" class="btn btn-warning">
+			    	<i class="icon-pencil3"> </i>
+			    	修改
+			    </button>
+			    <button type="button" class="btn btn-danger">
+			    	<i class="icon-minus"> </i>
+			    	删除
+			    </button>
+	        	<div class="dataTables_length">
+	        		<label>
+	        			<span>显示:</span>
+	        			<page-count-select>
+	        				<option value="10">10</option>
+	        				<option value="25">25</option>
+	        				<option value="50">50</option>
+	        				<option value="100">100</option>
+	        			</page-count-select>
+	        		</label>
+	        	</div>
+	        	<div id="gamesFilter" class="dataTables_filter">
+        			<label><span>查询:</span> <input type="search" placeholder="Type to filter..."></label>
+        		</div>
+        	</div>
+        	<div class="datatable-scroll">
+        		<table class="table table-bordered dataTable no-footer table-check" id="gameList" role="grid">
+	            	<thead>
+		                <tr role="row">
+		                	<td>
+		                		<div class="checker">
+		                			<span ng-class="{'checked':allChecked}" ng-click="allCheck()">
+		                				<input type="checkbox" class="styled">
+		                			</span>
+		                		</div>
+		                	</td>
+		                	<th ng-repeat="th in tableIndex" ng-class="{'sorting_asc': th.sort == 0, 'sorting_desc': th.sort == 1, 'sorting': th.sort == 2}" ng-click="sortTab(th)">
+		                		{{th.name}}
+		                	</th>
+		                </tr>
+		            </thead>
+		            <tbody>
+		               <tr role="row" ng-repeat="game in games">
+		               		<td>
+		                		<div class="checker">
+		                			<span ng-class="{'checked':game.checked}">
+		                				<input type="checkbox" class="styled" ng-click="check(game)">
+		                			</span>
+		                		</div>
+		                	</td>
+		                    <td>{{game.sortNumber}}</td>
+		                    <td>{{game.name}}</td>
+		                    <td>{{game.id}}</td>
+		                    <td>{{game.default}}</td>
+		                </tr></tbody>
+	        	</table>
+        	</div>
+        	<div class="datatable-footer">
+        		<div class="dataTables_info">
+        			显示 
+        			{{(pageObj.currentPage - 1) * pageObj.pageCount + 1}} 
+        			到 
+        			{{pageObj.currentPage * pageObj.pageCount}} 
+        			共 
+        			{{pageObj.totalCount}} 
+        			条
+        		</div>
+        		<div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_8_paginate">
+        			<a class="paginate_button first" ng-class="{'disabled': pageObj.currentPage == 1}" id="DataTables_Table_8_first" ng-click="getData(1)">
+        				首页
+        			</a>
+        			<a class="paginate_button previous" ng-class="{'disabled': pageObj.currentPage == 1}" id="DataTables_Table_8_previous" ng-click="getData(1)">
+        				&lt;
+        			</a>
+        			<span>
+        				<a class="paginate_button" ng-repeat="page in pages" ng-class="{'current': pageObj.currentPage == page}" ng-click="getData(page)">
+        					{{page}}
+        				</a>
+        			</span>
+        			<a class="paginate_button next" ng-class="{'disabled': pageObj.currentPage == pageObj.totalPage}" ng-click="getData(pageObj.totalPage)">
+        				&gt;
+        			</a>
+        			<a class="paginate_button last" ng-class="{'disabled': pageObj.currentPage == pageObj.totalPage}" ng-click="getData(pageObj.totalPage)">
+        				末页
+        			</a>
+        		</div>
+        	</div>
+        </div>
+    </div>
+</div>

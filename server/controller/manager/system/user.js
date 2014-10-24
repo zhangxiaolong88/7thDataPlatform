@@ -30,13 +30,24 @@ exports.login = function(req, res) {
 	}
 };
 
-exports.checkLogin = function(req, res){
-	if(req.session.user){
-		$rootScope.user = req.session.user;
+exports.checkLogin = function(req, res) {
+	if (req.session.user) {
+		res.send({
+			status: 1,
+			msg: "已登录"
+		});
 	} else {
 		res.send({
 			status: 0,
 			msg: "未登录"
 		});
 	}
+};
+
+exports.logout = function(req, res) {
+	delete req.session.user;
+	res.send({
+		status: 1,
+		msg: "已登出"
+	});
 };

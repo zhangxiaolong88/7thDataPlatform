@@ -12,9 +12,11 @@ require.config({
 		'uiRoute': '../components/angular-ui-router/release/angular-ui-router',
 		'uiBootstrap': '../components/angular-bootstrap/ui-bootstrap',
 		'uiBootstrapTpls': '../components/angular-bootstrap/ui-bootstrap-tpls',
-		'jquery': '../components/jquery/dist/jquery',
 		'd3': '../components/d3/d3',
-		'underscore': '../components/underscore/underscore'
+		'underscore': '../components/underscore/underscore',
+		'jquery': '../components/jquery/dist/jquery',
+		'select2': '../components/select2/select2.min',
+		'pickDataRange': '../components/pickDataRange/pickDataRange'
 	},
 	shim: {
 		'angular': {
@@ -53,6 +55,17 @@ require.config({
 		},
 		'underscore': {
 			exports: 'underscore'
+		},
+		'jquery': {
+			exports: '$'
+		},
+		'select2': {
+			deps: ['jquery'],
+			exports: 'select2'
+		},
+		'pickDataRange': {
+			deps: ['jquery'],
+			exports: 'pickDataRange'
 		}
 	}
 

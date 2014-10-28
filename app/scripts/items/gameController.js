@@ -1,12 +1,11 @@
 'use strict';
 
 /* Controllers */
-define(['jquery', 'select2', 'pickDataRange'], function($) {
+define(['jquery', 'select2', 'pickDateRange'], function($) {
 	var controllersObj = {};
 
 	controllersObj.gameController = ['$scope', 'gameService',
 		function($scope, gameService) {
-
 			// 查询结果
 			$scope.games = [];
 			// 分页参数
@@ -34,12 +33,15 @@ define(['jquery', 'select2', 'pickDataRange'], function($) {
 				name: "游戏描述",
 				sort: 2
 			}];
+			var now = new Date();
+			var time = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate()
+
 			// 时间段查询参数
-			$scope.dataRang = {
-				sp_startTime: "2014-01-01",
-				sp_endTime: "2014-01-01",
-				ep_startTime: "2014-01-01",
-				ep_endTime: "2014-01-01"
+			$scope.dateRange = {
+				s_startDate: "2014-01-01",
+				s_endDate: "2014-01-31",
+				e_startDate: "2014-02-01",
+				e_endDate: "2014-03-01"
 			};
 
 			// 每一行的checkbox点击事件

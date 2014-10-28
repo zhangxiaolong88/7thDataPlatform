@@ -15,8 +15,8 @@ require.config({
 		'd3': '../components/d3/d3',
 		'underscore': '../components/underscore/underscore',
 		'jquery': '../components/jquery/dist/jquery',
-		'select2': '../components/select2/select2.min',
-		'pickDataRange': '../components/pickDataRange/pickDataRange'
+		'select2': '../lib/select2/select2.min',
+		'pickDateRange': '../lib/pickDateRange/pickDateRange'
 	},
 	shim: {
 		'angular': {
@@ -63,9 +63,9 @@ require.config({
 			deps: ['jquery'],
 			exports: 'select2'
 		},
-		'pickDataRange': {
+		'pickDateRange': {
 			deps: ['jquery'],
-			exports: 'pickDataRange'
+			exports: 'pickDateRange'
 		}
 	}
 

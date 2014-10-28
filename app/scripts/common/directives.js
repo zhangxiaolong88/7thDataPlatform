@@ -24,32 +24,35 @@ define(['jquery'], function($) {
 		};
 	};
 
-	directives.pickDataRange = function() {
+	directives.pickDateRange = function() {
 		return {
 			restrict: "A",
 			template: "<div id='div_date' class='date'>" +
-				"<span id='date' class='date_title'>2014-05-13 至 2014-06-11</span>" +
+				"<span id='date' class='date_title'></span>" +
 				"<a href='javascript:void(0);' id='input_trigger' class='opt_sel'>" +
 				"<i class='i_orderd'></i>" +
 				"</a>" +
 				"</div>",
 			transclude: true,
+			scope: {
+				dateObj: "="
+			},
 			link: function($scope, $element, $attrs) {
+				console.log($scope.dateObj);
 				var dataRange = new pickerDateRange("date", {
 					theme: 'ta',
-					s_startDate: "2014-09-01",
-					s_endDate: "2014-10-01",
-					countPeriod: 1,
-					isSingle: false,
+					s_startDate: $scope.dateObj.s_startDate,
+					s_endDate: $scope.dateObj.s_endDate,
+					e_startDate: $scope.dateObj.e_startDate,
+					e_endDate: $scope.dateObj.e_endDate,
+					countPeriod: 3,   // 3:月 2:周 1:日
+					isSingle: false,  // true:单时间点 false:开始时间点和结束时间点
 					success: function(obj) {
 						$scope.$apply(function() {
-							console.log(obj);
-							// $scope.dataRang.sp_startTime = obj.sp_startDate;
-							// $scope.dataRang.ep_startTime = obj.ep_endDate;
+							$scope.dateObj = obj;
 						});
 					}
 				});
-
 			}
 		};
 	}

@@ -121,6 +121,10 @@ define(['jquery', 'select2', 'pickDateRange'], function($) {
 				});
 			};
 
+			$scope.destroy = function(){
+				
+			}
+			
 			getGames({
 				pageCount: 10,
 				currentPage: 1

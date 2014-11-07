@@ -41,12 +41,13 @@ define(['jquery'], function($) {
 				console.log($scope.dateObj);
 				var dataRange = new pickerDateRange("date", {
 					theme: 'ta',
+					suffix: '',
 					s_startDate: $scope.dateObj.s_startDate,
 					s_endDate: $scope.dateObj.s_endDate,
 					e_startDate: $scope.dateObj.e_startDate,
 					e_endDate: $scope.dateObj.e_endDate,
-					countPeriod: 3,   // 3:月 2:周 1:日
-					isSingle: false,  // true:单时间点 false:开始时间点和结束时间点
+					countPeriod: 1,   // 3:月 2:周 1:日
+					isSingle: true,  // true:单时间点 false:开始时间点和结束时间点
 					success: function(obj) {
 						$scope.$apply(function() {
 							$scope.dateObj = obj;

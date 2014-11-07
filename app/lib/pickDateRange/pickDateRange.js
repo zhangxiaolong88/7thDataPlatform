@@ -26,7 +26,7 @@ function pickerDateRange(inputId, options) {
         e_endDateId: 'e_endDate', // 终止时间段的结束日期输入框ID
         target: '', // 日期选择框的目标，一般为 <form> 的ID值
         suffix: 'suffix', //相应控件的后缀
-        inputTrigger : 'input_trigger',
+        inputTrigger: 'input_trigger',
         calendars: 2, // 展示的月份数，最大是2
         dayRangeMax: 0, // 日期最大范围(以天计算)
         monthRangeMax: 12, // 日期最大范围(以月计算)
@@ -580,7 +580,6 @@ pickerDateRange.prototype.close = function() {
     var str = $('#' + this.s_startDateId).val() + this.mOpts.defaultText + $('#' + this.s_endDateId).val();
     if (false == this.mOpts.isSingle) {
         if (2 == this.mOpts.countPeriod || 3 == this.mOpts.countPeriod) {
-
             if (e_bDateTime < s_bDateTime) {
                 var tmp = $('#' + this.s_startDateId).val();
                 $('#' + this.s_startDateId).val($('#' + this.e_startDateId).val());
@@ -591,6 +590,10 @@ pickerDateRange.prototype.close = function() {
                 $('#' + this.e_endDateId).val(tmp_);
             }
             str = $('#' + this.s_startDateId).val() + " - " + $('#' + this.s_endDateId).val() + this.mOpts.defaultText + $('#' + this.e_startDateId).val() + " - " + $('#' + this.e_endDateId).val();
+        }
+    } else if (true == this.mOpts.isSingle) {
+        if (1 == this.mOpts.countPeriod) {
+             str = $('#' + this.s_startDateId).val();
         }
     }
 

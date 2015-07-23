@@ -1,10 +1,10 @@
-数据分析平台demo
+seed项目 demo
 ==================================
 
-使用自动化部署的种子项目：<br />
-https://github.com/zhangxiaolong88/angular-require-grunt-express-seed.git
+在自动化部署的种子项目上开发demo版<br />
+（种子项目链接：https://github.com/zhangxiaolong88/angular-require-grunt-express-seed.git）
 
-##依赖：
+##环境依赖：
 ###1.nodejs
 http://www.nodejs.org/
 
@@ -18,10 +18,13 @@ npm install -g grunt-cli
 ###4.bower
 npm install –g bower
 
-##安装了上述服务后进行初始化：
+##确保安装了上述服务成功后clone该项目
+git clone https://github.com/zhangxiaolong88/seed-demo.git
+
+##初始化
 bower install & npm install
 
-##启动服务：
+##启动服务
 grunt express-server
 
 ##打开浏览器：
